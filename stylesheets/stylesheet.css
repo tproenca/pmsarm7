@@ -490,7 +490,7 @@ header h2 {
 
 #main-content {
   float: left;
-  width: 690px;
+  /*width: 690px;*/
 }
 
 #main-content img {
@@ -878,4 +878,11 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) { }
+
+.footer {
+  border-top: 1px solid #AAA;
+  padding-top: 15px;
+  margin-top: 80px;
+  font-size: 11px;
+}
 
