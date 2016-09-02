@@ -1,0 +1,27 @@
+{
+  "name": "pmsarm7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "plexdownload.js",
+  "dependencies": {
+    "phantomjs-prebuilt": "^2.1.12",
+    "webdriverio": "^4.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tproenca/pmsarm7.git"
+  },
+  "keywords": [
+    "plex"
+  ],
+  "author": "Tiago Proenca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tproenca/pmsarm7/issues"
+  },
+  "homepage": "https://github.com/tproenca/pmsarm7#readme"
+}
