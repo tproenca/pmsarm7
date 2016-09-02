@@ -1,4 +1,4 @@
-# pmsarm7
+# pmsarm7 [![Build Status](https://travis-ci.org/tproenca/pmsarm7.svg?branch=master)](https://travis-ci.org/tproenca/pmsarm7)
 Plex Media Server ARM package for Debian/Ubuntu Linux
 
 ### Motivation
