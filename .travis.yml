@@ -2,6 +2,10 @@ dist: trusty
 language: node_js
 node_js:
 - '6'
+addons:
+  apt:
+    packages:
+    - fakeroot
 before_install:
 - npm install
 - node plexserverurl.js > plexserver.url
