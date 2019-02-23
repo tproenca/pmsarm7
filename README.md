@@ -6,7 +6,7 @@ Since dev2day pms repository is outdated has been a while, I decided to create a
 
 ### Setup
 ```bash
-echo "deb http://dl.bintray.com/tproenca/pmsarm7 jessie main" | sudo tee /etc/apt/sources.list.d/pms.list
+echo "deb https://dl.bintray.com/tproenca/pmsarm7 jessie main" | sudo tee /etc/apt/sources.list.d/pms.list
 ```
 
 ### Instalation
