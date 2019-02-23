@@ -1,0 +1,6 @@
+node_modules/
+skeleton/
+*.asc
+*.url
+*.spk
+*.deb
