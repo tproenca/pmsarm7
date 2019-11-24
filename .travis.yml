@@ -9,7 +9,7 @@ addons:
 before_install:
 - npm install
 - node plexserverurl.js > plexserver.url
-# - cat plexserver.url | xargs wget
+- cat plexserver.url | xargs wget
 # install:
 # - tar -xzf skeleton.tgz
 # - cat plexserver.url | xargs basename | xargs tar -xvf
