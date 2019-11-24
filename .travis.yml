@@ -9,29 +9,30 @@ addons:
 before_install:
 - npm install
 - node plexserverurl.js > plexserver.url
-- cat plexserver.url | xargs wget
-install:
-- tar -xzf skeleton.tgz
-- cat plexserver.url | xargs basename | xargs tar -xvf
-- tar -xvf package.tgz -C skeleton/usr/lib/plexmediaserver
-- rm -r skeleton/usr/lib/plexmediaserver/dsm_config
-- find skeleton/usr/lib/plexmediaserver -iname "*.so" -exec chmod 644 {} \;
-- find skeleton/usr/lib/plexmediaserver -iname "*.so.*" -exec chmod 644 {} \;
-- cat plexserver.url | xargs basename  | awk -F '-' '{print $2"-"$3}' > version
-- sed -i "s/\[VERSION\]/$(cat version)/" skeleton/DEBIAN/control
-script: fakeroot dpkg-deb --build skeleton ./
-before_deploy:
-- export RELEASE_PKG_FILE=$(ls *.deb)
-- sed -i "s/\[VERSION\]/$(cat version)/" deploy.bintray
-- sed -i "s/\[DATE\]/$(date +%Y-%m-%d)/" deploy.bintray
-- sed -i "s/\[FILE\]/$(echo ${RELEASE_PKG_FILE})/g" deploy.bintray
-deploy:
-  skip_cleanup: true
-  provider: bintray
-  user: tproenca
-  key:
-    secure: Dup5TGUd6NLeKT9maMDWhbvH0HT/jEG/qZ4Qpk9caDTPIv20J+Sfy5MXjJg25bcojcA0rNU0I3qv3DnToRwXo8aYP+oY342uARD2b/tiByoJLSUHybUW2/CmaP8TI0ewXnGQIHiAV7oXZsJAx9Fg+swetvxIBZT4WE99kpSgdlUNwEib5TLa9rRCoJSgcubWhb3SXXMEO/S/d3bKCxX7aSsXIp+HS0d9ZrllUsE19T2+IawKkGNDEKPqmXOE2Ufffxzeh1BqnLWs06WapBR6XRnT28fDj6q6z8iCNZoj6AwdR0UWFnCbIA+oHrLatBLx77U5dAboLaq0usPn7GPAMqDwEHmd6bJZXIj9QHiDUUk3T24tmHNL3SJUkXiNfQgMsGLDjIOoUyDhuaaZ/xSc3Xb9mbneFDCSsZAlXfkizkCV0qR1byujpDzuehF49J+sQTgLODGyxlgVUWJFuJMY6mq+oUGHvzyu9zapIiM5POO7OnOZzLLWxBdIBPl/quS3TPICWZQKnlkhkgNZQBD+QX+7qSQBguC7IRUx6CBZak1pHXk5yMuBHJWtf4c0RbJma6CY7dLs0SzRZFCuwSFNpCaUCoWUBkZ3aYI70qeB1skJWlr5AC3iFwoi1r4w2iUzzCALtXmoiKr3ViI1f1YHZxHaAwloQ/PqEKqlbUVFohs=
-  file: deploy.bintray
-  dry-run: false
-  on:
-    branch: master
+# - cat plexserver.url | xargs wget
+# install:
+# - tar -xzf skeleton.tgz
+# - cat plexserver.url | xargs basename | xargs tar -xvf
+# - tar -xvf package.tgz -C skeleton/usr/lib/plexmediaserver
+# - rm -r skeleton/usr/lib/plexmediaserver/dsm_config
+# - find skeleton/usr/lib/plexmediaserver -iname "*.so" -exec chmod 644 {} \;
+# - find skeleton/usr/lib/plexmediaserver -iname "*.so.*" -exec chmod 644 {} \;
+# - cat plexserver.url | xargs basename  | awk -F '-' '{print $2"-"$3}' > version
+# - sed -i "s/\[VERSION\]/$(cat version)/" skeleton/DEBIAN/control
+# script: fakeroot dpkg-deb --build skeleton ./
+script: cat plexserverurl.js
+# before_deploy:
+# - export RELEASE_PKG_FILE=$(ls *.deb)
+# - sed -i "s/\[VERSION\]/$(cat version)/" deploy.bintray
+# - sed -i "s/\[DATE\]/$(date +%Y-%m-%d)/" deploy.bintray
+# - sed -i "s/\[FILE\]/$(echo ${RELEASE_PKG_FILE})/g" deploy.bintray
+# deploy:
+#   skip_cleanup: true
+#   provider: bintray
+#   user: tproenca
+#   key:
+#     secure: Dup5TGUd6NLeKT9maMDWhbvH0HT/jEG/qZ4Qpk9caDTPIv20J+Sfy5MXjJg25bcojcA0rNU0I3qv3DnToRwXo8aYP+oY342uARD2b/tiByoJLSUHybUW2/CmaP8TI0ewXnGQIHiAV7oXZsJAx9Fg+swetvxIBZT4WE99kpSgdlUNwEib5TLa9rRCoJSgcubWhb3SXXMEO/S/d3bKCxX7aSsXIp+HS0d9ZrllUsE19T2+IawKkGNDEKPqmXOE2Ufffxzeh1BqnLWs06WapBR6XRnT28fDj6q6z8iCNZoj6AwdR0UWFnCbIA+oHrLatBLx77U5dAboLaq0usPn7GPAMqDwEHmd6bJZXIj9QHiDUUk3T24tmHNL3SJUkXiNfQgMsGLDjIOoUyDhuaaZ/xSc3Xb9mbneFDCSsZAlXfkizkCV0qR1byujpDzuehF49J+sQTgLODGyxlgVUWJFuJMY6mq+oUGHvzyu9zapIiM5POO7OnOZzLLWxBdIBPl/quS3TPICWZQKnlkhkgNZQBD+QX+7qSQBguC7IRUx6CBZak1pHXk5yMuBHJWtf4c0RbJma6CY7dLs0SzRZFCuwSFNpCaUCoWUBkZ3aYI70qeB1skJWlr5AC3iFwoi1r4w2iUzzCALtXmoiKr3ViI1f1YHZxHaAwloQ/PqEKqlbUVFohs=
+#   file: deploy.bintray
+#   dry-run: false
+#   on:
+#     branch: master
