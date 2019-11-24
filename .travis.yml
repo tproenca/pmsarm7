@@ -20,7 +20,7 @@ before_install:
 # - cat plexserver.url | xargs basename  | awk -F '-' '{print $2"-"$3}' > version
 # - sed -i "s/\[VERSION\]/$(cat version)/" skeleton/DEBIAN/control
 # script: fakeroot dpkg-deb --build skeleton ./
-script: cat plexserverurl.url
+script: cat plexserver.url
 # before_deploy:
 # - export RELEASE_PKG_FILE=$(ls *.deb)
 # - sed -i "s/\[VERSION\]/$(cat version)/" deploy.bintray
