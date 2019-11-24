@@ -12,7 +12,7 @@ phantomjs.run('--webdriver=4444').then(program => {
   .selectByVisibleText('.plex-downloads-pms-platform', 'Synology')
   .click('//button[text()="Choose Package"]')
   .waitForVisible('.tooltipster-content', 5000)
-  .element('//div[contains(@class, "tooltipster-content")]//a[text()="ARMv7"]')
+  .element('//div[contains(@class, "tooltipster-content")]//a[contains(text(), "ARMv7 (x13 Series")]')
   .getAttribute('href')
   .then(function(href) {
     console.log(href);
