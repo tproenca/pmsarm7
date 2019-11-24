@@ -6,6 +6,9 @@ addons:
   apt:
     packages:
     - fakeroot
+cache:
+  directories:
+    - node_modules
 before_install:
 - npm install
 - node plexserverurl.js > plexserver.url
